@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trow{
+            width:10%;
+            height:35px;
+        }
+  .main{
+ 
+ font-size: 18px;
+    height:35px;
+    color:azure;
+    background-color: rgb(255, 102, 46);
+  }
+table{
+    margin-top:3%;
+width: 100%;
+
+}
+
+  .grey{
+    background-color:  rgb(255, 231, 223);
+  }
+  
+button{
+    background-color:white;
+    padding:4px;
+    border:2px solid  rgb(255, 135, 91);
+    border-radius: 5px;
+    width:70px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color:  rgb(255, 102, 46);
+    color:white;
+
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+input{
+    height: 30px;
+    width:80%;
+    border:2px solid rgb(255, 102, 46);
+    border-radius:5px;
+    
+}
+
+.notodo{
+    color: rgb(255, 0, 0);
+    height:60px;
+    width:95%;
+    
+    border:2px solid rgb(255, 49, 46);
+    border-radius:5px;
+    margin-top:4%;
+    background-color:rgb(255, 223, 223);
+}
+.sub{
+    height:30px;
+    width:100px;
+    margin-left: 40%;
+}
+
+.header{
+    color: rgb(255, 0, 0);
+    height:60px;
+    width:100%;
+    
+    border:2px solid rgb(255, 49, 46);
+    background-color: rgb(255, 106, 51);
+    margin-bottom: 4%;
+    color:azure;
+    display:flex;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3 style="margin-left: 1%;">Todo Mania  | Home</h3>
+        <div  style="width: 85%; display: flex; justify-content: flex-end; margin-right: 1%;" >
+        <h3 >Menu</h3></div> </div>
+
+
+  
+    <form action="/" method="POST">
+        <label for="title">Title :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="title" placeholder="Enter Title For Your Todo" required><br><br>
+
+
+        <label for="desc">Description :</label>
+
+        <input type="text" name="desc" placeholder="Enter Description Of Your Todo" required ><br><br>
+        <button type="submit" class="sub">Submit</button>
+    </form>
+    <center>
+    {% if alltodo|length==0 %}
+
+  <div class="notodo"> <h3>You Have No Todos , Add Now !</h3></div>
+        
+    {% else %}
+        
+   
+<table cellspacing="0" >
+    <tr  class="mainrow">
+        <td class="trow main  " align="center">SR.NO.</td>
+        <td class="trow main" >TITLE</td>
+        <td class="trow main" >DESCRIPTION</td>
+        <td class="trow main" >DATE CREATED</td>
+        <td class="trow main" >ACTIONS</td>
+    </tr>
+
+{% for todo in alltodo %}
+    
+
+    <tr class="{% if loop.index % 2 == 0 %}
+       grey
+    {% endif %}">
+        <td class="trow " align="center" >{{loop.index}}</td>
+        <td class="trow">{{todo.title}}</td>
+        <td class="trow">{{todo.desc}}</td>
+        <td class="trow">{{todo.time}}</td>
+        <td class="trow"><a href="/update/{{todo.sno}}"><button>Update</button></a>
+            <a href="/delete/{{todo.sno}}"><button>Delete</button></a></td>
+
+    </tr>
+
+    {% endfor %}
+    {% endif %}
+
+
+</table>
+
+
+</center>
+
+
+</body>
+</html>

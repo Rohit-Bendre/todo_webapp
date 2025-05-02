@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+button{
+    background-color:white;
+    padding:4px;
+    border:2px solid  rgb(255, 135, 91);
+    border-radius: 5px;
+    width:70px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color:  rgb(255, 102, 46);
+    color:white;
+
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+input{
+    height: 30px;
+    width:80%;
+    border:2px solid rgb(255, 102, 46);
+    border-radius:5px;
+    
+}
+
+.notodo{
+    color: rgb(255, 0, 0);
+    height:60px;
+    width:95%;
+    
+    border:2px solid rgb(255, 49, 46);
+    border-radius:5px;
+    margin-top:4%;
+    background-color:rgb(255, 223, 223);
+}
+.sub{
+    height:30px;
+    width:100px;
+    margin-left: 40%;
+}
+
+.header{
+    color: rgb(255, 0, 0);
+    height:60px;
+    width:100%;
+    
+    border:2px solid rgb(255, 49, 46);
+    background-color: rgb(255, 106, 51);
+    margin-bottom: 4%;
+    color:azure;
+    display:flex;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h3 style="margin-left: 1%;">Todo Mania  | Home</h3>
+        <div  style="width: 85%; display: flex; justify-content: flex-end; margin-right: 1%;" >
+        <h3 >Menu</h3></div> </div>
+
+
+
+
+
+<h3>Updating Your Todo :</h3>
+    <form action="/update/{{todo.sno}}" method="POST">
+        <label for="title">Title :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="title" value="{{todo.title}}"><br><br>
+
+
+        <label for="desc">description :</label>
+        <input type="text" name="desc" value="{{todo.desc}}"><br><br>
+        <a href="/update/{{todo.sno}}"><button type="submit" value="submit" class="sub" >submit</button></a>
+
+    </form>
+
+
+
+
+
+
+</body>
+</html>
